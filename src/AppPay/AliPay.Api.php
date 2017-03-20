@@ -6,9 +6,9 @@ class AliPayOrderData
 
     protected $config;
 
-    public function __construct(AliPayConfig $config)
+    public function __construct()
     {
-        $this->config = $config;
+        $this->config = new AliPayConfig();
     }
 
     public $values = array();

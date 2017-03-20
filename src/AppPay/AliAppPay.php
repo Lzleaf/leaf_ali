@@ -11,27 +11,22 @@ namespace AppPay;
 
 class AliAppPay
 {
-    protected $ali_pay;
-    public function __construct(AliPayOrderData $ali_pay)
-    {
-        $this->ali_pay = $ali_pay;
-    }
     public function aliPayOrderData($url,$subject,$out_trade_no,$price,$desc = ''){
-        
-        $this->ali_pay->setService('mobile.securitypay.pay');
-        $this->ali_pay->setPartner();
-        $this->ali_pay->setInputCharset('utf-8');
-        $this->ali_pay->setSignType('RSA');
-        $this->ali_pay->setProductCode('QUICK_MSECURITY_PAY');
-        $this->ali_pay->setNotifyUrl(urlencode($url));
-        $this->ali_pay->setSubject($subject);
-        $this->ali_pay->setPayment_type(1);
-        $this->ali_pay->setOut_trade_no($out_trade_no);
-        $this->ali_pay->setSeller_id();
-        $this->ali_pay->setTotal_fee($price);
-        $this->ali_pay->setBody($desc);
+        $ali_pay = new AliPayOrderData();
+        $ali_pay->setService('mobile.securitypay.pay');
+        $ali_pay->setPartner();
+        $ali_pay->setInputCharset('utf-8');
+        $ali_pay->setSignType('RSA');
+        $ali_pay->setProductCode('QUICK_MSECURITY_PAY');
+        $ali_pay->setNotifyUrl(urlencode($url));
+        $ali_pay->setSubject($subject);
+        $ali_pay->setPayment_type(1);
+        $ali_pay->setOut_trade_no($out_trade_no);
+        $ali_pay->setSeller_id();
+        $ali_pay->setTotal_fee($price);
+        $ali_pay->setBody($desc);
 
-        $str = $this->ali_pay->argSort($this->ali_pay->values);
+        $str = $ali_pay->argSort($ali_pay->values);
         return $str;
     }
 }

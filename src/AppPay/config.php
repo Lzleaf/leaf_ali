@@ -7,5 +7,5 @@ namespace AppPay;
 class AliPayConfig
 {
     public $partner = "2088221923826557";
-    public $private_key_path = "../key/rsa_private_key.pem";
+    public $private_key_path = __DIR__."/key/rsa_private_key.pem";
 }
