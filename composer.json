@@ -13,7 +13,7 @@
     "require": {},
     "autoload":{
         "psr-4":{
-            "Leaf_Pay\\":"src/"
+            "AppPay\\":"src/AppPay"
         }
     }
 }
